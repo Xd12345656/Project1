@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login and Registration Form</title>
+<style>
+    body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .form-container {
+        width: 300px;
+        padding: 30px;
+        background: #f0f0f0;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    .form-container form {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .form-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .form-container input[type="text"],
+    .form-container input[type="password"],
+    .form-container input[type="submit"] {
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 3px solid #ccc;
+        border-radius: 5px;
+    }
+    
+    .form-container input[type="submit"] {
+        background: #007bff;
+        color: #fff;
+        cursor: pointer;
+    }
+    
+    .form-container.register {
+        transform: translateX(100%);
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="form-container">
+        <h2>Login</h2>
+        <form id="login-form">
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <input type="submit" value="Login">
+        </form>
+        <p>Don't have an account? <a href="#" id="register-link">Register here</a></p>
+    </div>
+    <div class="form-container register">
+        <h2>Register</h2>
+        <form id="register-form">
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <input type="submit" value="Register">
+        </form>
+        <p>Already have an account? <a href="#" id="login-link">Login here</a></p>
+    </div>
+</div>
+
+<script>
+    const loginContainer = document.querySelector('.form-container');
+    const registerContainer = document.querySelector('.form-container.register');
+    const loginLink = document.getElementById('login-link');
+    const registerLink = document.getElementById('register-link');
+
+    loginLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        loginContainer.classList.remove('register');
+    });
+
+    registerLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        loginContainer.classList.add('register');
+    });
+</script>
+
+</body>
+</html>
